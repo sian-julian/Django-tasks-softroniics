@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Course Details</h2>
+    <table border="2">
+        <tr>
+            <th>Course Name</th>
+            <th>Course code</th>
+            <th>Date</th>
+        </tr>
+        <tr>
+            {% for i in data %}
+            <td>{{i.course_name}}</td>
+            <td>{{i.course_code}}</td>
+            <td>{{i.date}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

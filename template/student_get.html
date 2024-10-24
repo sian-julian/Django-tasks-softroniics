@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Student Details</h2>
+    <table border="2">
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Course</th>
+            <th>Delete Student</th>
+            <th>Update Student</th>
+        </tr>
+        <tr>
+            {% for i in data %}
+            <td>{{i.first_name}}</td>
+            <td>{{i.last_name}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.phone_number}}</td>
+            <td>{{i.course}}</td>
+            <td><a href="{% url 'delete' i.id %}">delete</a></td>
+            <td><a href="{% url 'update' i.id %}">update</a></td>
+        </tr>
+        {% endfor %}
+    </table><br><br>
+    <h2>View courses</h2>
+    <p>Click <a href="{% url 'course_list' %}">here</a>to view course details and enrolled students</p>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+    <label for="id">emp_id</label>
+    <input type="text" name="id" value="{{value1.emp_id}}" required><br><br>
+    <label for="name">emp_name</label>
+    <input type="text" name="name" value="{{value1.emp_name}}"><br><br>
+    <label for="category">category</label>
+    <select name="cat">
+        {% for x in value %}
+        <option value="{{x.cat_id}}">{{x.cat_name}}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">add</button>
+</form>
+</body>
+</html>

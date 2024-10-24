@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Update Event</h2>
+    <form method="POST">
+        {% csrf_token %}
+    <label for="title">Event Title</label>
+    <input type="text" name="title" value="{{data.title}}" required><br><br>
+
+    <label for="date">Date</label>
+    <input type="datetime-local" name="date" value="{{data.date|date:'Y-m-d\TH:i'}}" required><br><br>
+
+    <label for="location">Location</label>
+    <input type="text" name="location" value="{{data.location}}" required><br><br>
+    
+    <label for="organizer">Organizer</label>
+    <select name="org">
+        {% for x in data2 %}
+        <option value="{{x.id}}">{{x.name}}</option>
+        {% endfor %}
+    </select><br><br>
+    <button type="submit">Update</button>
+</body>
+</html>

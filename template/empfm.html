@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="id">empid</label>
+        <input type="text" name="id" placeholder="Enter the Employee id" required><br>
+
+        <label for="name">empname</label>
+        <input type="text" name="name" placeholder="Enter the Employee name" required><br>
+
+        <label for="age">empage</label>
+        <input type="text" name="age" placeholder="Enter the Employee age" required><br>
+
+        <label for="ph">empphno</label>
+        <input type="text" name="ph" placeholder="Enter the Employee phone no" required><br>
+        <button type="submit">Submit</button>
+
+    </form>
+</body>
+</html>

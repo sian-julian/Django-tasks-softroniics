@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>employe details</h1>
+    <table border="2">
+        <tr>
+            <th>emp_id</th>
+            <th>emp_name</th>
+            <th>category</th>
+            <th>catid</th>
+        </tr>
+        <tr>
+            {% for i in data %}
+            <td>{{i.emp_id}}</td>
+            <td>{{i.emp_name}}</td>
+            <td>{{i.cata}}</td>
+            <td>{{i.cata.cat_id}}</td>
+            <td><a href="{% url 'empup' i.emp_id %}">update</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
