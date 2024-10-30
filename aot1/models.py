@@ -105,6 +105,13 @@ class Event(models.Model):
     location=models.CharField(max_length=255)
     organizer=models.ForeignKey(Organizer,on_delete=models.CASCADE)
 
+
+class Post(models.Model):
+    title=models.CharField(max_length=200)
+    content=models.TextField()
+    created_at=models.DateTimeField(auto_now_add=True)
+
+
      
     
 

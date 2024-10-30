@@ -358,6 +358,7 @@ def course_details(request,id):
     return render(request,"course_details.html",{'course':course,'students':students})
 
 #task
+from django.db.models import Q
 def organizerget(request):
     oraganizer=Organizer.objects.all()
     return render(request,"organizer_get.html",{'data':oraganizer})
@@ -396,6 +397,10 @@ def organizer_update(request,id):
 
 def eventget(request):
     event=Event.objects.all()
+    if request.method == 'POST':
+        value=request.POST.get('search')
+        srch=Event.objects.filter(Q(title__icontains=value))
+        return render(request,"event_get.html",{'data':srch})
     return render(request,"event_get.html",{'data':event})
 
 def eventadd(request):
@@ -432,6 +437,29 @@ def event_update(request,id):
         event.save()
         return redirect('ev')
     return render(request,"update_event.html",{'data':event,'data2':organizer})
+
+def index_view(request):
+    return render(request,"index.html")
+
+#task
+def post_get(request):
+    po=Post.objects.all()
+    return render(request,"post_list.html",{'data':po})
+
+def post_add(request):
+    if request.method == 'POST':
+        title=request.POST.get('title')
+        content=request.POST.get('content')
+        date=request.POST.get('date')
+        post_obj=Post()
+        post_obj.title=title
+        post_obj.content=content
+        post_obj.created_at=date
+        post_obj.save()
+        return redirect('po')
+    return render(request,"post_add.html")
+
+
 
 
 

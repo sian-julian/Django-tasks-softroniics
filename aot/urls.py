@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from aot1 import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -69,5 +71,12 @@ urlpatterns = [
     path("deleteorganizer/<int:id>",views.organizer_del,name='delete'),
     path("deleteevent",views.event_del,name='delete'),
     path("updateorganizer/<int:id>",views.organizer_update,name='update'),
-    path("updateevent/<int:id>",views.event_update,name='update')
+    path("updateevent/<int:id>",views.event_update,name='update'),
+
+    path("iview",views.index_view),
+
+    path("poget",views.post_get,name='po'),
+    path("poadd",views.post_add)
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL,documemt_root=settings.STATIC_ROOT)

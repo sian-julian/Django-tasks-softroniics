@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/post.css' %}">
+</head>
+<body>
+    <h2>Blog Post details</h2>
+    <table border="2">
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Created At</th>
+        </tr>
+        <tr>
+            {% for i in data %}
+            <td>{{i.title}}</td>
+            <td>{{i.content}}</td>
+            <td>{{i.created_at}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
