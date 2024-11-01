@@ -450,14 +450,44 @@ def post_add(request):
     if request.method == 'POST':
         title=request.POST.get('title')
         content=request.POST.get('content')
-        date=request.POST.get('date')
         post_obj=Post()
         post_obj.title=title
         post_obj.content=content
-        post_obj.created_at=date
         post_obj.save()
         return redirect('po')
     return render(request,"post_add.html")
+
+from .forms import postform
+def post_v(request):
+    if request.method == 'POST':
+        form=postform(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form=postform()
+    return render(request,"posth.html",{'form':form})
+
+def post_update(request,id):
+    po=Post.objects.get(id=id)
+    if request.method == 'POST':
+        title=request.POST.get('title')
+        content=request.POST.get('content')
+        po.title=title
+        po.content=content
+        po.save()
+        return redirect('po')
+    return render(request,"post_update.html",{'data':po})
+
+from .forms import UserRegistrationForm
+def userreg_v(request):
+    if request.method == 'POST':
+        form=UserRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()  
+    else:
+        form=UserRegistrationForm()
+    return render(request,"userh.html",{'form':form})
+
 
 
 

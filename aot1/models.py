@@ -105,11 +105,18 @@ class Event(models.Model):
     location=models.CharField(max_length=255)
     organizer=models.ForeignKey(Organizer,on_delete=models.CASCADE)
 
-
+#task
 class Post(models.Model):
     title=models.CharField(max_length=200)
     content=models.TextField()
     created_at=models.DateTimeField(auto_now_add=True)
+
+#task
+class Userreg(models.Model):
+    username=models.CharField(max_length=2000)
+    email=models.EmailField(unique=True)
+    password=models.CharField(max_length=100)
+    confirm_password=models.CharField(max_length=100) 
 
 
      

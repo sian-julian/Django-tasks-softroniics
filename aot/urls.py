@@ -76,7 +76,11 @@ urlpatterns = [
     path("iview",views.index_view),
 
     path("poget",views.post_get,name='po'),
-    path("poadd",views.post_add)
+    path("poadd",views.post_add),
+    path("pp",views.post_v),
+    path("updatepost/<int:id>",views.post_update,name='update'),
+
+    path("userv",views.userreg_v)
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,documemt_root=settings.STATIC_ROOT)

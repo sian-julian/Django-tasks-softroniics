@@ -7,7 +7,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
+    background-color: #0f1114;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,12 +17,12 @@ body {
 }
 
 .container {
-    background-color: #ffffff;
+    background-color: #9adaa8;
     padding: 30px 40px;
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     max-width: 450px;
-    width: 100%;
+    width: 50%;
     text-align: center;
 }
 
@@ -30,6 +30,7 @@ h2 {
     font-size: 24px;
     margin-bottom: 20px;
     color: #333;
+    text-decoration: underline;
 }
 
 form {
@@ -41,17 +42,16 @@ form {
 label {
     margin: 15px 0 8px;
     font-weight: bold;
-    color: #555;
+    color: #130808;
 }
 
 input[type="text"], 
 textarea {
     width: 100%;
     padding: 10px 15px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     border: 1px solid #ddd;
     border-radius: 6px;
-    transition: all 0.3s ease;
     font-size: 16px;
 }
 
@@ -62,12 +62,8 @@ textarea:focus {
     box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
 }
 
-textarea {
-    resize: vertical;
-}
-
 button {
-    background-color: #d85a0c;
+    background-color:#d85a0c;
     color: white;
     padding: 12px 20px;
     font-size: 16px;
@@ -78,10 +74,10 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #130f0c;
 }
 
 button:active {
-    background-color: #cd5f16;
+    background-color: #a1470a;
 }
 
