@@ -114,11 +114,21 @@ class Post(models.Model):
 #task
 class Userreg(models.Model):
     username=models.CharField(max_length=2000)
-    email=models.EmailField(unique=True)
+    email=models.EmailField()
     password=models.CharField(max_length=100)
     confirm_password=models.CharField(max_length=100) 
 
+class Userimg(models.Model):
+    name=models.CharField(max_length=200)
+    age=models.IntegerField()
+    user_img=models.ImageField(upload_to='image/')
 
+
+class Image(models.Model):
+    title=models.CharField(max_length=200)
+    Image_up=models.ImageField(upload_to='image/')
+    uploaded_at=models.DateTimeField(auto_now_add=True)
      
     
+
 

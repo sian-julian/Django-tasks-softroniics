@@ -80,7 +80,11 @@ urlpatterns = [
     path("pp",views.post_v),
     path("updatepost/<int:id>",views.post_update,name='update'),
 
-    path("userv",views.userreg_v)
+    path("userv",views.userreg_v),
+    path("useri",views.userimg),
+
+    path("imget",views.image_get,name='im'),
+    path('imadd',views.img_add)
 ]
 if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL,documemt_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

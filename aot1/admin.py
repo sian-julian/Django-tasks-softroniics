@@ -46,8 +46,12 @@ admin.site.register(Event)
 
 admin.site.register(Post)
 
+
 admin.site.register(Userreg)
 
+admin.site.register(Userimg)
+
+admin.site.register(Image)
 
 
 

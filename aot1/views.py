@@ -489,9 +489,25 @@ def userreg_v(request):
     return render(request,"userh.html",{'form':form})
 
 
+def userimg(request):
+    users=Userimg.objects.all()
+    return render(request,"userimg_get.html",{'users':users})
 
+#task
+def image_get(request):
+    img=Image.objects.all()
+    return render(request,"image_get.html",{'data':img})
 
-
+def img_add(request):
+    if request.method== 'POST':
+        titile=request.POST.get('title')
+        img=request.FILES.get('img')
+        img_obj=Image()
+        img_obj.title=titile
+        img_obj.Image_up=img
+        img_obj.save()
+        return redirect('im')
+    return render(request,'imgadd_form.html')    
 
 
 
