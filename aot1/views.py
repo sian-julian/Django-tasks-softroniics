@@ -507,7 +507,22 @@ def img_add(request):
         img_obj.Image_up=img
         img_obj.save()
         return redirect('im')
-    return render(request,'imgadd_form.html')    
+    return render(request,'imgadd_form.html')  
+
+def fun10(request):
+    return render(request,"base.html")
+def fun12(request):
+    return render(request,"home.html")
+def fun13(request):
+    return render(request,"about.html")
+
+#task
+def base2(request):
+    return render(request,"base2.html")
+
+def product(request):
+    return render(request,"products.html")
+
 
 
 

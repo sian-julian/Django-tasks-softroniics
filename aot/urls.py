@@ -84,7 +84,13 @@ urlpatterns = [
     path("useri",views.userimg),
 
     path("imget",views.image_get,name='im'),
-    path('imadd',views.img_add)
+    path('imadd',views.img_add),
+    path('bs',views.fun10),
+    path('home',views.fun12,name='home'),
+    path('about',views.fun13,name='about'),
+
+    path('bs2',views.base2),
+    path('product',views.product)
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
