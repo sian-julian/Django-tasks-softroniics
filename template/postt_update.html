@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Post Updation</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    <label for="title">Post Title</label>
+    <input type="text" name="title" value="{{data.title}}" required><br><br>
+
+    <label for="content">Content</label>
+    <textarea id="content" name="content" rows="4" cols="50" required>{{data.content}}</textarea><br><br>
+
+    <label for="img">Image:</label>
+        {% if data.image %}
+            <img src="{{ data.image.url }}" width="100" height="100"><br>
+        {% endif %}
+    <input type="file" name="img"><br><br>
+    
+    <label for="aut">Author</label>
+    <select name="aut">
+        <option value="" disabled>Select an author</option>
+        {% for x in data2 %}
+        <option value="{{x.id}}">{{x.data2.name}}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <button type="submit">Update</button>
+</body>
+</html>

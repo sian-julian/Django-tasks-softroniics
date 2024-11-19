@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Post details</h2>
+    <table border="2">
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Image</th>
+            <th>Published date</th>
+            <th>Author</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+        <tr>
+            {% for i in data %}
+            <td>{{i.title}}</td>
+            <td>{{i.content}}</td>
+            <td>
+                {% if i.image %}
+                    <img src="{{ i.image.url }}" width="100" height="100">
+                {% else %}
+                    No image available
+                {% endif %}
+            </td>
+            <td>{{i.published_date}}</td>
+            <td>{{i.author.name}}</td>
+            <td><a href="{% url 'delete' i.id %}">Delete</a></td>
+            <td><a href="{% url 'update' i.id %}">Update</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

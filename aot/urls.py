@@ -90,7 +90,15 @@ urlpatterns = [
     path('about',views.fun13,name='about'),
 
     path('bs2',views.base2),
-    path('product',views.product)
+    path('product',views.product),
+    path('login',views.loginsession,name='login'),
+    path('homme',views.homesession,name='hm'),
+    path('logout',views.userlogout,name='log'),
+
+    path('potab',views.posttable_get,name='ptab'),
+    path('poform',views.postaddform),
+    path('podel/<int:id>',views.postt_del,name='delete'),
+    path('poup/<int:id>',views.postt_update,name='update')
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

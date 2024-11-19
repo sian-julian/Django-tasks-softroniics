@@ -128,7 +128,26 @@ class Image(models.Model):
     title=models.CharField(max_length=200)
     Image_up=models.ImageField(upload_to='image/')
     uploaded_at=models.DateTimeField(auto_now_add=True)
-     
-    
+class userrrrmodel(models.Model):
+    user_id=models.IntegerField(primary_key=True)
+    username=models.CharField(max_length=100)
+    password=models.CharField(max_length=100)   
+
+
+#task
+class Author(models.Model):
+    name=models.CharField(max_length=100)
+    bio=models.TextField()
+    def __str__(self):
+        return self.name
+
+class Postt(models.Model):
+    title=models.CharField(max_length=100)
+    content=models.TextField()
+    image=models.ImageField(upload_to='image/')
+    published_date=models.DateField(auto_now_add=True)
+    author=models.ForeignKey(Author,on_delete=models.CASCADE)
+
+
 
 

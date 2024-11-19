@@ -522,6 +522,69 @@ def base2(request):
 
 def product(request):
     return render(request,"products.html")
+def loginsession(request):
+    if request.method == 'POST':
+        name=request.POST.get('username')
+        password=request.POST.get('password')
+        user=userrrrmodel.objects.filter(username=name,password=password).first()
+        if user is not None:
+            request.session['user_id']=user.user_id
+            return redirect('hm')
+        else:
+            return render(request,"login.html")
+    else:    
+        return render(request,"login.html")
+def homesession(request):
+    return render(request,"homesession.html") 
+def userlogout(request):
+    if 'user_id' in request.session:
+        del request.session['user_id']  
+        return redirect('login') 
+    
+
+#task
+def posttable_get(request):
+    post=Postt.objects.all()
+    return render(request,"post_get.html",{'data':post})
+
+def postaddform(request):
+    author=Author.objects.all()
+    if request.method == 'POST':
+        title=request.POST.get('title')
+        content=request.POST.get('content')
+        img=request.FILES.get('img')
+        post_obj=Postt()
+        post_obj.title=title
+        post_obj.content=content
+        post_obj.image=img
+        post_obj.author=Author.objects.get(id=request.POST.get('aut'))
+        post_obj.save()
+        return redirect('ptab')
+    return render(request,"postaddform.html",{'data':author})
+
+def postt_del(request,id):
+    post=Postt.objects.get(id=id)
+    post.delete()
+    return redirect('ptab')
+
+def postt_update(request,id):
+    author=Author.objects.all()
+    post=Postt.objects.get(id=id)
+    if request.method == 'POST':
+        title=request.POST.get('title')
+        content=request.POST.get('content')
+        img=request.FILES.get('img')
+        post.title=title
+        post.content=content
+        post.image=img
+        post.author=Author.objects.get(id=request.POST.get('aut'))
+        post.save()
+        return redirect('ptab')
+    return render(request,"postt_update.html",{'data':post,'data2':author})
+        
+
+
+
 
 
 
@@ -532,8 +595,6 @@ def product(request):
 
 
     
-
-
 
 
 

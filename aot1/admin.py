@@ -53,5 +53,10 @@ admin.site.register(Userimg)
 
 admin.site.register(Image)
 
+admin.site.register(userrrrmodel)
+
+admin.site.register(Author)
+admin.site.register(Postt)
+
 
 
